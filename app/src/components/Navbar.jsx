@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export default function Navbar() {
     return (
         <nav className="bg-white border-gray-200">
@@ -8,9 +10,8 @@ export default function Navbar() {
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Tracking Shipment</span>
                 </a>
                 <ul className="flex space-x-4">
-                    <li><a href="/" className="hover:text-blue-200 font-sans font-bold">Home</a></li>
-                    <li><a href="/about" className="hover:text-blue-200">About</a></li>
-                    <li><a href="/contact" className="hover:text-blue-200">Contact</a></li>
+                    <li><NavLink to={'/'}>Home</NavLink></li>
+                    <li><NavLink to={'/about-me'}>About</NavLink></li>
                 </ul>
             </div>
         </nav>

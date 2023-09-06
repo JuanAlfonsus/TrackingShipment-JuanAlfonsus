@@ -16,21 +16,21 @@ export default function DetailShipment({ data }) {
                             <FontAwesomeIcon icon={faBoxOpen} style={{ color: "#6b7280", }} />
                             <h3 className="text-2xl text-gray-600 font-bold">Service Type</h3>
                         </div>
-                        <p>{resi_info[0].service_type}</p>
+                        <p className="text-gray-500 text-xl text-center font-semibold">{resi_info[0].service_type}</p>
                     </div>
                     <div>
                         <div className="flex flex-row gap-2 items-center">
                             <FontAwesomeIcon icon={faBoxArchive} style={{ color: "#6b7280", }} />
                             <h3 className="text-2xl text-gray-600 font-bold">From</h3>
                         </div>
-                        <p>{resi_info[0].city_origin}</p>
+                        <p className="text-gray-500 text-xl text-center font-semibold">{resi_info[0].city_origin}</p>
                     </div>
                     <div>
                     <div className="flex flex-row gap-2 items-center">
                             <FontAwesomeIcon icon={faTruckFast} style={{ color: "#6b7280", }} />
                             <h3 className="text-2xl text-gray-600 font-bold">Destination</h3>
                         </div>
-                        <p>{resi_info[0].city_dest}</p>
+                        <p className="text-gray-500 text-xl text-center font-semibold">{resi_info[0].city_dest}</p>
                     </div>
                 </div>
 
@@ -87,6 +87,11 @@ export default function DetailShipment({ data }) {
 
                 <div className="mt-3">
                     <h4 className="text-xl text-gray-600 font-semibold">Good Description</h4>
+                    <p className="text-gray-500">{shipment_detail.isi}</p>
+                </div>
+
+                <div className="mt-3">
+                    <h4 className="text-xl text-gray-600 font-semibold">Branch ID</h4>
                     <p className="text-gray-500">{shipment_detail.isi}</p>
                 </div>
 
