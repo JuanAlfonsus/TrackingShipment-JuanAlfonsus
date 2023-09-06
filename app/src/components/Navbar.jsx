@@ -9,7 +9,7 @@ export default function Navbar() {
                     <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Flowbite Logo" />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Tracking Shipment</span>
                 </a>
-                <ul className="flex space-x-4">
+                <ul className="flex space-x-4 gap-5">
                     <li><NavLink to={'/'}>Home</NavLink></li>
                     <li><NavLink to={'/about-me'}>About</NavLink></li>
                 </ul>

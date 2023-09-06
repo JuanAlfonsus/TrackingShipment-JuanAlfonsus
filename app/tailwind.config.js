@@ -12,7 +12,9 @@ export default {
     },
     fontFamily: {
       sans: ['Outfit', 'sans-serif'],
-      rubik: ['Rubik Iso']
+      rubik: ['Rubik Iso', 'cursive'],
+      lilito: ['Lilita One', 'cursive']
+
     },
   },
   plugins: [],

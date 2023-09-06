@@ -1,6 +1,6 @@
 import HorizontalLine from "./HorizontalLine"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBox, faBoxArchive, faBoxOpen, faTruckFast } from '@fortawesome/free-solid-svg-icons'
+import { faBoxArchive, faBoxOpen, faTruckFast } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function DetailShipment({ data, scrollToRef }) {
