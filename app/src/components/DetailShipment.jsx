@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBox, faBoxArchive, faBoxOpen, faTruckFast } from '@fortawesome/free-solid-svg-icons'
 
 
-export default function DetailShipment({ data }) {
+export default function DetailShipment({ data, scrollToRef }) {
     const { resi_info, shipment_detail, tracking_status_detail } = data
 
     return (
         <>
             {/* resi_info */}
-            <div className="p-10">
+            <div ref={scrollToRef} className="p-10">
                 <div className="flex flex-row justify-between pr-7 mb-5">
                     <div>
                         <div className="flex flex-row gap-2 items-center">

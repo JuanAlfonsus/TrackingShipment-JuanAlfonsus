@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import axios from "axios"
 import DetailShipment from "../components/DetailShipment"
 import Delivery from '../assets/icon_devilery.svg'
@@ -12,6 +12,8 @@ export default function TrackingShipmentView() {
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState({})
 
+    const scrollToRef = useRef()
+
     // Handle input resi
     const handleInput = (e) => {
         setInput(e.target.value)
@@ -21,7 +23,6 @@ export default function TrackingShipmentView() {
     const handleCheck = async (e) => {
         try {
             e.preventDefault()
-            setData({})
             if (!input) {
                 setData({
                     noInput: 1
@@ -50,6 +51,12 @@ export default function TrackingShipmentView() {
         }
     }
 
+    useEffect(() => {
+        if (data.resi_info) {
+            scrollToRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    }, [data])
+
 
     return (
         <>
@@ -72,7 +79,7 @@ export default function TrackingShipmentView() {
 
                     {/* detail user */}
                     {
-                        loading ? <ModalLoading /> : data.resi_info ? <DetailShipment data={data} /> : data.notFound ? <DataNotFound /> : <img src={Delivery} alt="Delivery" className='h-32' />
+                        loading ? <ModalLoading /> : data.resi_info ? <DetailShipment scrollToRef={scrollToRef} data={data} /> : data.notFound ? <DataNotFound /> : <img src={Delivery} alt="Delivery" className='h-32' />
                     }
                 </div>
             </section>

@@ -10,10 +10,11 @@ export default {
         blues: '#6C63FF'
       }
     },
+    fontFamily: {
+      sans: ['Outfit', 'sans-serif'],
+      rubik: ['Rubik Iso']
+    },
   },
   plugins: [],
-  fontFamily: {
-    sans: ['Outfit'],
-  },
 }
 
