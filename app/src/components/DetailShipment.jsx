@@ -6,11 +6,21 @@ import { faBoxArchive, faBoxOpen, faTruckFast } from '@fortawesome/free-solid-sv
 export default function DetailShipment({ data, scrollToRef }) {
     const { resi_info, shipment_detail, tracking_status_detail } = data
 
+    // mengubah date format
+    const dateFormat = (value) => {
+        const date = value.split(' ')
+        date.splice(0, 1)
+        date.splice(-1, 1)
+        const newDate = date.join(' ')
+
+        return newDate
+    }
+
     return (
         <>
             {/* resi_info */}
             <div ref={scrollToRef} className="p-10">
-                <div className="flex flex-row justify-between pr-7 mb-5">
+                <div className="flex flex-row justify-between pr-7 mb-10">
                     <div>
                         <div className="flex flex-row gap-2 items-center">
                             <FontAwesomeIcon icon={faBoxOpen} style={{ color: "#6b7280", }} />
@@ -26,11 +36,11 @@ export default function DetailShipment({ data, scrollToRef }) {
                         <p className="text-gray-500 text-xl text-center font-semibold">{resi_info[0].city_origin}</p>
                     </div>
                     <div>
-                    <div className="flex flex-row gap-2 items-center">
+                        <div className="flex flex-row gap-2 items-center">
                             <FontAwesomeIcon icon={faTruckFast} style={{ color: "#6b7280", }} />
                             <h3 className="text-2xl text-gray-600 font-bold">Destination</h3>
                         </div>
-                        <p className="text-gray-500 text-xl text-center font-semibold">{resi_info[0].city_dest}</p>
+                        <p className="text-gray-500 text-xl text-center font-semibold" style={{ wordWrap: true }}>{resi_info[0].city_dest}</p>
                     </div>
                 </div>
 
@@ -43,18 +53,14 @@ export default function DetailShipment({ data, scrollToRef }) {
                         {
                             tracking_status_detail.map((e, i) => {
                                 const { dateprocess, status, branch_code, status_by } = e
-                                const date = dateprocess.split(' ')
-                                date.splice(0, 1)
-                                date.splice(-1, 1)
-                                const newDate = date.join(' ')
                                 return (
                                     <div key={i}>
                                         <div className="flex items-center mb-4">
-                                            <div className={ i == 0 ? "w-8 h-8 rounded-full bg-gray-500 text-white flex items-center justify-center" : "w-8 h-8 rounded-full bg-gray-300 text-white flex items-center justify-center"}></div>
+                                            <div className={i == 0 ? "w-8 h-8 rounded-full bg-gray-500 text-white flex items-center justify-center" : "w-8 h-8 rounded-full bg-gray-300 text-white flex items-center justify-center"}></div>
                                             <div className="ml-2">
-                                                <h3 className={ i == 0 ? "text-gray-600 font-bold" : "text-gray-500 font-semibold"}>{status} AT {branch_code}</h3>
-                                                <p className={ i == 0 ? "text-gray-500 font-semibold" : "text-gray-600"}>BY {status_by}</p>
-                                                <p className={ i == 0 ? "text-gray-500 font-semibold text-sm" : "text-gray-500 font-light text-sm"}>{newDate}</p>
+                                                <h3 className={i == 0 ? "text-gray-600 font-bold" : "text-gray-500 font-semibold"}>{status} AT {branch_code}</h3>
+                                                <p className={i == 0 ? "text-gray-500 font-semibold" : "text-gray-600"}>BY {status_by}</p>
+                                                <p className={i == 0 ? "text-gray-500 font-semibold text-sm" : "text-gray-500 font-light text-sm"}>{dateFormat(dateprocess)}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +79,7 @@ export default function DetailShipment({ data, scrollToRef }) {
                 <div className="flex flex-row justify-between mr-20 mt-5">
                     <div>
                         <h4 className="text-xl text-gray-600 font-semibold">Shipment Date</h4>
-                        <p className="text-gray-500">{shipment_detail.dateprocess}</p>
+                        <p className="text-gray-500">{dateFormat(shipment_detail.dateprocess)}</p>
                     </div>
                     <div>
                         <h4 className="text-xl text-gray-600 font-semibold">Qty</h4>
