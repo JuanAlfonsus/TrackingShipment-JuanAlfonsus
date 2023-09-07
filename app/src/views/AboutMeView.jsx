@@ -1,20 +1,36 @@
+import { useEffect, useRef, useState } from 'react'
 import Foto from '../assets/foto.png'
 import BlueCircle from '../components/BlueCircle'
 import 'animate.css'
+import Project from '../components/Project'
 
 export default function AboutMeView() {
+    const [show, setShow] = useState(false)
+
+    const scrollToRef = useRef()
+
+    // function to set show
+    const handleShow = () => {
+        setShow(!show)
+    }
+
+    useEffect(() => {
+        if (show) {
+            scrollToRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    }, [show])
+
     return (
         <>
             <section className="flex justify-center align-middle mt-10 pb-10">
                 <div className="bg-white w-2/3 rounded shadow-lg overflow-clip flex flex-col p-14 relative ">
                     <BlueCircle position={'leftUp'} />
                     <BlueCircle position={'rightBottom'} />
-                    {/* <h1 className=" font-sans">About Me</h1> */}
                     <div className="grid grid-cols-2">
                         <div className=" flex justify-center">
                             <img src={Foto} alt="foto" className="animate__animated animate__fadeInLeft" />
                         </div>
-                        <div className="">
+                        <div>
                             <div className='text-center animate__animated animate__fadeInDown'>
                                 <h1 className=' font-lilito text-6xl text-gray-600'>Juan Alfonsus</h1>
                                 <h1 className=' font-lilito text-3xl text-gray-500'>Fullstack Developer</h1>
@@ -28,21 +44,37 @@ export default function AboutMeView() {
                             </div>
                             <div className='flex justify-center mt-10 gap-10 animate__animated animate__fadeInUp'>
                                 <a href="https://www.linkedin.com/in/juannalfonsus/" target='_blank'>
-                                    <i class="fa-brands fa-linkedin text-4xl" style={{ color: '#253e6a' }}></i>
+                                    <i className="fa-brands fa-linkedin text-4xl" style={{ color: '#253e6a' }}></i>
                                 </a>
                                 <a href="https://github.com/JuanAlfonsus" target='_blank'>
-                                    <i class="fa-brands fa-github text-4xl" style={{ color: '#253e6a' }}></i>
+                                    <i className="fa-brands fa-github text-4xl" style={{ color: '#253e6a' }}></i>
                                 </a>
                                 <a href="https://www.facebook.com/" target='_blank'>
-                                    <i class="fa-brands fa-facebook text-4xl" style={{ color: '#253e6a' }}></i>
+                                    <i className="fa-brands fa-facebook text-4xl" style={{ color: '#253e6a' }}></i>
                                 </a>
                                 <a href="https://www.instagram.com/juannalfonsus" target='_blank'>
-                                    <i class="fa-brands fa-instagram text-4xl" style={{ color: '#253e6a' }}></i>
+                                    <i className="fa-brands fa-instagram text-4xl" style={{ color: '#253e6a' }}></i>
                                 </a>
                             </div>
                         </div>
                     </div>
+
+                    <div className='flex flex-col items-center mt-10' onClick={handleShow}>
+                        {
+                            show ? 
+                            <span className=' text-2xl hover:cursor-pointer text-gray-600 ml-8'>Show Less! <i className="fa-solid fa-arrow-up"></i> </span>
+                            : 
+                            <span className=' text-2xl hover:cursor-pointer text-gray-600 '>Show More! <i className="fa-solid fa-arrow-down"></i> </span>
+                        }                        
+                    </div>
+
+                    {
+                        show ? <Project scrollToRef={scrollToRef} /> : ''
+                    }
                 </div>
+
+
+                {/* show more */}
             </section>
         </>
     )
