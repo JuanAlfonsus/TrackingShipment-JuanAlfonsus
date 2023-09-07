@@ -1,11 +1,15 @@
 import PetDoorz from '../assets/petdoorzAsset 3.png'
 import Cinemind from '../assets/cinemind.png'
+import GamingFuel from '../assets/gamingfuel.jpg'
+
 import HorizontalLine from './HorizontalLine'
+
 import Express from '../assets/express.svg'
 import ReactNative from '../assets/react-native.svg'
 import Expo from '../assets/expo.svg'
 import Postgre from '../assets/postgre.svg'
 import Graphql from '../assets/graphql.svg'
+import Vue from '../assets/vue.svg'
 
 export default function Project({ scrollToRef }) {
 
@@ -55,6 +59,28 @@ export default function Project({ scrollToRef }) {
                             </a>
                         </div>
                     </div>
+
+                    <HorizontalLine />
+
+                    <div className="mt-5 flex flex-col items-center">
+                        <img src={GamingFuel} alt="" className=' h-[250px] mb-5 mt-3' />
+                        <p className=' text-xl'>A web based top up in game currency especially mobile games</p>
+                        <div className=' flex flex-row gap-8 mt-5 mb-5'>
+                            <img src={Express} alt="Express js" className='w-20 opacity-30' />
+                            <img src={Vue} alt="Express js" className='w-20 opacity-30' />
+                            <img src={Postgre} alt="Express js" className='w-20 opacity-30' />
+                        </div>
+                        <div className='flex items-center gap-5 mt-5'>
+                            <a href="https://gaming-fuel.web.app/" target='_blank'>
+                                <i className="fa-solid fa-globe text-2xl" style={{ color: '#253e6a' }}></i>
+                            </a>
+                            <a href="https://github.com/JuanAlfonsus" target='_blank'>
+                                <i className="fa-brands fa-github text-2xl" style={{ color: '#253e6a' }}></i>
+                            </a>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </>
