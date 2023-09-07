@@ -70,6 +70,9 @@ export default function TrackingShipmentView() {
                             <label className="text-gray-500 font-bold">
                                 No. Resi
                             </label>
+                            {
+                                data.noInput ? <p className=" text-red-600">Field cannot be empty!</p> : ''
+                            }
                             <div className="flex flex-row gap-5">
                                 <input className="shadow appearance-none border rounded w-9/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="resi" placeholder="Input nomor resi disini" onChange={(e) => handleInput(e)} />
                                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type='submit'>Cek</button>

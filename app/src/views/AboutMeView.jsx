@@ -59,18 +59,18 @@ export default function AboutMeView() {
                         </div>
                     </div>
 
+                    {
+                        show ? <Project scrollToRef={scrollToRef} /> : ''
+                    }
+
                     <div className='flex flex-col items-center mt-10' onClick={handleShow}>
                         {
                             show ? 
-                            <span className=' text-2xl hover:cursor-pointer text-gray-600 ml-8'>Show Less! <i className="fa-solid fa-arrow-up"></i> </span>
+                            <span className=' text-2xl hover:cursor-pointer text-gray-600'>Show Less! <i className="fa-solid fa-arrow-up"></i> </span>
                             : 
                             <span className=' text-2xl hover:cursor-pointer text-gray-600 '>Show More! <i className="fa-solid fa-arrow-down"></i> </span>
                         }                        
                     </div>
-
-                    {
-                        show ? <Project scrollToRef={scrollToRef} /> : ''
-                    }
                 </div>
 
 
