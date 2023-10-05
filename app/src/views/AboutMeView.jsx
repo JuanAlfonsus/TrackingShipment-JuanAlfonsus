@@ -40,7 +40,7 @@ export default function AboutMeView() {
                                     Gunadarma University, where I studied Informatics Engineering. After graduated, I continued my
                                     programming education by completing Hacktiv8 bootcamp as a full-stack javascript developer. I
                                     always eager to learn new things and seeking a challenging position in the tech industry, where I can
-                                    use my skills and passion to make a positive impact.</p>
+                                    use my skills and passion to make a positive impact. That's all thankyou!</p>
                             </div>
                             <div className='flex justify-center mt-10 gap-10 animate__animated animate__fadeInUp'>
                                 <a href="https://www.linkedin.com/in/juannalfonsus/" target='_blank'>
